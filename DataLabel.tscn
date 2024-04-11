@@ -2,18 +2,16 @@
 
 [ext_resource type="Script" path="res://DataLabel.gd" id="1_kyam8"]
 
-[node name="Node" type="Node"]
+[node name="DataLabel" type="HBoxContainer"]
+size_flags_horizontal = 3
 script = ExtResource("1_kyam8")
 
-[node name="Datalabel" type="HBoxContainer" parent="."]
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="Datalabel"]
+[node name="Label" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "test"
 
-[node name="Value" type="Label" parent="Datalabel"]
+[node name="Value" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "test"

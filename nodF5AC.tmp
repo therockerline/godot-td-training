@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://5iri51f54yiw"]
+
+[ext_resource type="Script" path="res://Node.gd" id="1_rwhb7"]
+[ext_resource type="Texture2D" uid="uid://di04qqrap1y1y" path="res://icon.svg" id="2_k3g6c"]
+[ext_resource type="PackedScene" uid="uid://ds43tqravbmoj" path="res://HUD.tscn" id="3_ivymb"]
+
+[sub_resource type="Curve2D" id="Curve2D_8l55x"]
+bake_interval = 0.25
+
+[node name="Game" type="Node"]
+script = ExtResource("1_rwhb7")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Node2D"]
+curve = SubResource("Curve2D_8l55x")
+
+[node name="Line2D" type="Line2D" parent="Node2D/Path2D"]
+width = 2.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Node2D/Path2D"]
+position = Vector2(100, 200)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Path2D/PathFollow2D"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_k3g6c")
+
+[node name="Camera2D" type="Camera2D" parent="Node2D"]
+
+[node name="HUD" parent="." instance=ExtResource("3_ivymb")]

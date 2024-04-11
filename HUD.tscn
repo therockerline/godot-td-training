@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds43tqravbmoj"]
+
+[ext_resource type="Script" path="res://HUD.gd" id="1_51kfo"]
+[ext_resource type="PackedScene" uid="uid://b3m35rlgp4ixu" path="res://DataLabel.tscn" id="1_82p1i"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_51kfo")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 12
+
+[node name="Queue" parent="Control/GridContainer" instance=ExtResource("1_82p1i")]
+layout_mode = 2
+label = "Queue"
+initial_value = "0"
+
+[node name="NextQueue" parent="Control/GridContainer" instance=ExtResource("1_82p1i")]
+layout_mode = 2
+label = "Next"
+initial_value = "0"
+
+[node name="TimeDatalabel" parent="Control/GridContainer" instance=ExtResource("1_82p1i")]
+layout_mode = 2
+label = "Time"
+initial_value = "0"
+
+[node name="TotalDistanceDatalabel" parent="Control/GridContainer" instance=ExtResource("1_82p1i")]
+layout_mode = 2
+label = "Total Km"
+initial_value = "0"
+
+[node name="PathDatalabel" parent="Control/GridContainer" instance=ExtResource("1_82p1i")]
+layout_mode = 2
+label = "Path"
+initial_value = "0"
