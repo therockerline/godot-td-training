@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4curgelvbncc"]
+
+[ext_resource type="Script" path="res://SlotItemController.gd" id="1_065ci"]
+[ext_resource type="Texture2D" uid="uid://bv457g2jglsig" path="res://assets/kenney_crosshair-pack/PNG/Black/crosshair025.png" id="1_n4tej"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14kd4"]
+size = Vector2(56, 56)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_065ci")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -21.0
+offset_top = -21.0
+offset_right = 21.0
+offset_bottom = 21.0
+text = "0.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Image" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_n4tej")
+
+[node name="SlotArea" type="Area2D" parent="."]
+scale = Vector2(0.75, 0.75)
+disable_mode = 1
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotArea"]
+z_index = 1
+shape = SubResource("RectangleShape2D_14kd4")

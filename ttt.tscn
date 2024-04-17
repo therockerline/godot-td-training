@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmrnpxlcywdjn"]
+
+[ext_resource type="PackedScene" uid="uid://d4curgelvbncc" path="res://Slot.tscn" id="1_roy4i"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node2D" parent="." instance=ExtResource("1_roy4i")]
+position = Vector2(62, 63)
+
+[node name="Node2D2" parent="." instance=ExtResource("1_roy4i")]
+position = Vector2(170, 60)
+
+[node name="Node2D3" parent="." instance=ExtResource("1_roy4i")]
+position = Vector2(125, 152)
+
+[node name="Node2D4" parent="." instance=ExtResource("1_roy4i")]
+position = Vector2(314, 84)
