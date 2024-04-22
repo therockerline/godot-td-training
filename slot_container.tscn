@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://mqtrrl64bacl"]
+
+[ext_resource type="Script" path="res://src/SlotController.gd" id="1_jc6pn"]
+
+[node name="SlotContainer" type="Node2D"]
+script = ExtResource("1_jc6pn")

@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://b82owqaydvox3"]
 
 [ext_resource type="Texture2D" uid="uid://di04qqrap1y1y" path="res://icon.svg" id="1_d4xua"]
-[ext_resource type="Script" path="res://Enemy.gd" id="1_kroq7"]
+[ext_resource type="Script" path="res://src/Enemy.gd" id="1_gsid5"]
 
 [node name="Enemy" type="PathFollow2D"]
 position = Vector2(100, 200)
 loop = false
-script = ExtResource("1_kroq7")
+script = ExtResource("1_gsid5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)

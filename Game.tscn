@@ -1,13 +1,22 @@
 [gd_scene load_steps=5 format=3 uid="uid://5iri51f54yiw"]
 
-[ext_resource type="Script" path="res://Game.gd" id="1_k6cbm"]
-[ext_resource type="Script" path="res://SlotController.gd" id="2_goscx"]
+[ext_resource type="Script" path="res://src/Game.gd" id="1_k6cbm"]
+[ext_resource type="PackedScene" uid="uid://mqtrrl64bacl" path="res://slot_container.tscn" id="3_c4kvc"]
 [ext_resource type="PackedScene" uid="uid://ds43tqravbmoj" path="res://HUD.tscn" id="3_iawox"]
 
 [sub_resource type="Curve2D" id="Curve2D_8l55x"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_k6cbm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="HUD" parent="Camera2D" instance=ExtResource("3_iawox")]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="SlotContainer" parent="." instance=ExtResource("3_c4kvc")]
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -18,15 +27,5 @@ end_cap_mode = 2
 
 [node name="Path2D" type="Path2D" parent="Node2D"]
 curve = SubResource("Curve2D_8l55x")
-
-[node name="SlotContainer" type="Node2D" parent="."]
-script = ExtResource("2_goscx")
-
-[node name="HUD" parent="." instance=ExtResource("3_iawox")]
-
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

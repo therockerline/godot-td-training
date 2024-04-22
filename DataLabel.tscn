@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://b3m35rlgp4ixu"]
 
-[ext_resource type="Script" path="res://DataLabel.gd" id="1_kyam8"]
+[ext_resource type="Script" path="res://src/DataLabel.gd" id="1_2dd8c"]
 
 [node name="DataLabel" type="HBoxContainer"]
 size_flags_horizontal = 3
-script = ExtResource("1_kyam8")
+script = ExtResource("1_2dd8c")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2

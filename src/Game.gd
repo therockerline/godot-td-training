@@ -2,7 +2,7 @@ extends Node
 
 @onready var path: Path2D = $Node2D/Path2D
 @onready var line: Line2D =  $Node2D/Line2D
-@onready var hud: HUD = $HUD
+@onready var hud: HUD = $Camera2D/HUD
 @onready var slotController: SlotController = $SlotContainer
 @onready var enemypacked: PackedScene = preload("res://Enemy.tscn")
 	
@@ -90,6 +90,7 @@ func _process(d):
 		hud.set_total_distance('%.2f' % totalDistance)
 	else:
 		hud.set_total_distance('%.2f' % 0)
+		
 
 func getPoint(idx = -1):
 	if path.curve.point_count >= abs(idx):
@@ -123,8 +124,6 @@ func createPath(dirs: Array[Vector2]):
 	line.points = path.curve.get_baked_points()
 	slotController.updateSlot(points, line.points, multiplier)
 
-
-
 func emitWave():
 	queue = next_queue
 	next_queue = randi() % 10 + lvl	
@@ -137,7 +136,7 @@ func emitWave():
 
 func _on_timer_timeout():
 	time -= 1
-	hud.set_time(time)
+	#hud.set_time(time)
 	if time == 0:
 		time = reload_time
 		emitWave()
