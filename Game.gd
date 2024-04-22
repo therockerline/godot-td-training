@@ -3,7 +3,7 @@ extends Node
 @onready var path: Path2D = $Node2D/Path2D
 @onready var line: Line2D =  $Node2D/Line2D
 @onready var hud: HUD = $HUD
-@onready var slotController: SlotController = $Node2D/SlotContainer
+@onready var slotController: SlotController = $SlotContainer
 @onready var enemypacked: PackedScene = preload("res://Enemy.tscn")
 	
 var r: Vector2 = Vector2.RIGHT

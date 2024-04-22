@@ -1,7 +1,7 @@
 extends Node2D
 class_name SlotController
 var slots: Array = []
-var Slotinstance = preload("res://Slot.tscn")
+@onready var Slotinstance = preload("res://Slot.tscn")
 var tslot = []
 var multi = 0
 
@@ -40,11 +40,11 @@ func updateSlot(points: Array, baked, multiplier: float):
 	var del = slots.filter(func(e): return !tslot.has(e))
 	for point in res:
 		#print('draw', point)
-		var slot: SlotItem = Slotinstance.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
+		var slot: SlotItem = Slotinstance.instantiate()
 		var position = point
 		slot.position = position
 		print(slot)
-		add_child(slot)
+		add_child(slot, true)
 	for slot_pos in del:
 		print('del', slot_pos)
 		var children = get_children()

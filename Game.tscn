@@ -6,13 +6,10 @@
 
 [sub_resource type="Curve2D" id="Curve2D_8l55x"]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node2D"]
 script = ExtResource("1_k6cbm")
 
 [node name="Node2D" type="Node2D" parent="."]
-
-[node name="SlotContainer" type="Node2D" parent="Node2D"]
-script = ExtResource("2_goscx")
 
 [node name="Line2D" type="Line2D" parent="Node2D"]
 width = 2.0
@@ -21,6 +18,9 @@ end_cap_mode = 2
 
 [node name="Path2D" type="Path2D" parent="Node2D"]
 curve = SubResource("Curve2D_8l55x")
+
+[node name="SlotContainer" type="Node2D" parent="."]
+script = ExtResource("2_goscx")
 
 [node name="HUD" parent="." instance=ExtResource("3_iawox")]
 
