@@ -136,7 +136,7 @@ func emitWave():
 
 func _on_timer_timeout():
 	time -= 1
-	#hud.set_time(time)
+	hud.set_time(time)
 	if time == 0:
 		time = reload_time
 		emitWave()

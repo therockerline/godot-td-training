@@ -36,3 +36,4 @@ func _on_slot_area_input_event(viewport, event, shape_idx):
 func build_tower(tower: Tower):
 	if build_slot.get_child_count() == 0:
 		build_slot.add_child(tower)
+		
