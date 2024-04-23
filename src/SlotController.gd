@@ -4,6 +4,7 @@ var slots: Array = []
 @onready var slot_instance = load("res://Slot.tscn")
 var tslot = []
 var multi = 0
+signal on_slot_selected
 
 func addPoint(point, dir):
 	var p = point + (dir * multi)
@@ -43,7 +44,7 @@ func updateSlot(points: Array, baked, multiplier: float):
 		var slot: SlotItem = slot_instance.instantiate()
 		var position = point
 		slot.position = position
-		slot.on_selected = func(point: Vector2): print('selected ', point)
+		slot.connect('on_selected',func(): on_slot_selected.emit(slot))
 		print(slot)
 		add_child(slot)
 		

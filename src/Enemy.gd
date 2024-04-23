@@ -9,6 +9,6 @@ func _process(d):
 		var totalDistance = path.curve.get_baked_length()
 		var ratio_at_second = speed / totalDistance
 		var delta_ratio_at_second = ratio_at_second * d
-		progress_ratio += delta_ratio_at_second		
+		progress_ratio += delta_ratio_at_second
 		if progress_ratio == 1.0:
 			queue_free()

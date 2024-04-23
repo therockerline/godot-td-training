@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d4curgelvbncc"]
 
 [ext_resource type="Script" path="res://src/SlotItemController.gd" id="1_065ci"]
-[ext_resource type="Texture2D" uid="uid://bv457g2jglsig" path="res://assets/kenney_crosshair-pack/PNG/Black/crosshair025.png" id="1_n4tej"]
+[ext_resource type="Texture2D" uid="uid://csgte1465tn2v" path="res://assets/crosshair026.png" id="2_5n8uk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14kd4"]
 size = Vector2(56, 56)
@@ -11,7 +11,7 @@ script = ExtResource("1_065ci")
 
 [node name="Image" type="Sprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("1_n4tej")
+texture = ExtResource("2_5n8uk")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -21.0
@@ -32,3 +32,9 @@ collision_mask = 3
 z_index = 1
 y_sort_enabled = true
 shape = SubResource("RectangleShape2D_14kd4")
+
+[node name="BuildSlot" type="Node2D" parent="."]
+
+[connection signal="input_event" from="SlotArea" to="." method="_on_slot_area_input_event"]
+[connection signal="mouse_entered" from="SlotArea" to="." method="_on_slot_area_mouse_entered"]
+[connection signal="mouse_exited" from="SlotArea" to="." method="_on_slot_area_mouse_exited"]

@@ -4,7 +4,7 @@ extends Node
 @onready var line: Line2D =  $Node2D/Line2D
 @onready var hud: HUD = $Camera2D/HUD
 @onready var slotController: SlotController = $SlotContainer
-@onready var enemypacked: PackedScene = preload("res://Enemy.tscn")
+@onready var enemypacked: PackedScene = preload("res://scenes/entity/Enemy.tscn")
 	
 var r: Vector2 = Vector2.RIGHT
 var l: Vector2 = Vector2.LEFT
@@ -24,8 +24,8 @@ var next_queue = 0:
 		hud.set_next_queue(v)
 		next_queue = v
 var lvl = 0
-var reload_time = 15.0
-var time = 15.0
+var reload_time = 5.0
+var time = 5.0
 
 func _ready():
 	next_queue = randi() % 10
