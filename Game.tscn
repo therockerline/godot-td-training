@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/Game.gd" id="1_k6cbm"]
 [ext_resource type="Script" path="res://src/BuildController.gd" id="2_n7njp"]
-[ext_resource type="PackedScene" path="res://SlotContainer.tscn" id="3_c4kvc"]
+[ext_resource type="PackedScene" uid="uid://mqtrrl64bacl" path="res://SlotContainer.tscn" id="3_c4kvc"]
 [ext_resource type="PackedScene" uid="uid://ds43tqravbmoj" path="res://HUD.tscn" id="3_iawox"]
 
 [sub_resource type="Curve2D" id="Curve2D_8l55x"]

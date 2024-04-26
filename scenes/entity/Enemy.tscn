@@ -7,6 +7,7 @@
 radius = 17.0
 
 [node name="PahtFollow" type="PathFollow2D"]
+rotates = false
 loop = false
 script = ExtResource("1_86n8v")
 
@@ -25,3 +26,23 @@ shape = SubResource("CircleShape2D_r5ths")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="Node2D" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="LifeRect" type="ColorRect" parent="Node2D"]
+offset_left = -16.0
+offset_top = -20.0
+offset_right = 16.0
+offset_bottom = -18.0
+color = Color(0, 1, 0, 1)
+
+[node name="DmgRect" type="ColorRect" parent="Node2D"]
+offset_left = 16.0
+offset_top = -18.0
+offset_right = 48.0
+offset_bottom = -16.0
+rotation = 3.14159
+scale = Vector2(1e-05, 1)
+color = Color(1, 0, 0, 1)
