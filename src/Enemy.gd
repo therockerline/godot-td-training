@@ -6,13 +6,13 @@ extends PathFollow2D
 @export var max_life = 5.0
 @export var life = 5.0
 @onready var sprite = $Sprite2D
-@onready var life_rect = $Node2D/LifeRect
-@onready var dmg_rect = $Node2D/DmgRect
+@onready var life_rect = $CanvasLayer/Node2D/LifeRect
+@onready var dmg_rect = $CanvasLayer/Node2D/DmgRect
 signal death
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(d):
-	sprite.look_at(path.curve.get_point_position(progress))
-	#($Node2D as Control).rotation_degrees = 90
+	$CanvasLayer/Node2D.position = position
 	if path.curve.get_baked_length() > 1:
 		var totalDistance = path.curve.get_baked_length()
 		var ratio_at_second = speed / totalDistance

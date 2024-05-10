@@ -7,7 +7,6 @@
 radius = 17.0
 
 [node name="PahtFollow" type="PathFollow2D"]
-rotates = false
 loop = false
 script = ExtResource("1_86n8v")
 
@@ -27,18 +26,23 @@ shape = SubResource("CircleShape2D_r5ths")
 wait_time = 0.2
 one_shot = true
 
-[node name="Node2D" type="Control" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Node2D" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
 
-[node name="LifeRect" type="ColorRect" parent="Node2D"]
+[node name="LifeRect" type="ColorRect" parent="CanvasLayer/Node2D"]
+layout_mode = 0
 offset_left = -16.0
 offset_top = -20.0
 offset_right = 16.0
 offset_bottom = -18.0
 color = Color(0, 1, 0, 1)
 
-[node name="DmgRect" type="ColorRect" parent="Node2D"]
+[node name="DmgRect" type="ColorRect" parent="CanvasLayer/Node2D"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = -18.0
 offset_right = 48.0
