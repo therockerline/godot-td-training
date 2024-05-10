@@ -10,6 +10,8 @@ extends PathFollow2D
 @onready var dmg_rect = $CanvasLayer/Node2D/DmgRect
 signal death
 
+func _ready():
+	dmg_rect.scale.x = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(d):
 	$CanvasLayer/Node2D.position = position
