@@ -1,9 +1,10 @@
 extends Node
 
-@onready var path: Path2D = $Node2D/Path2D
-@onready var line: Line2D =  $Node2D/Line2D
+@onready var path: Path2D = $PathContainer/Path2D
+@onready var line: Line2D =  $PathContainer/Line2D
 @onready var hud: HUD = $Camera2D/HUD
 @onready var slotController: SlotController = $SlotContainer
+@onready var enemyController: Node2D = $EnemyContainer
 @onready var enemypacked: PackedScene = preload("res://scenes/entity/Enemy.tscn")
 	
 var r: Vector2 = Vector2.RIGHT
@@ -34,7 +35,7 @@ func spawn(speed):
 	var enemy: Enemy = enemypacked.instantiate()
 	enemy.path = path 
 	enemy.speed = speed
-	path.add_child(enemy)
+	enemyController.add_child(enemy)
 	
 func differentFrom(direction: Vector2):
 	return curr_path[len(curr_path) - 1] != direction if len(curr_path) > 0 else true

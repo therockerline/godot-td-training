@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbo0benqviesh"]
+
+[ext_resource type="Script" path="res://src/EnemyBody.gd" id="1_e4avk"]
+[ext_resource type="Texture2D" uid="uid://4yxwdvo0c76c" path="res://assets/ship_A.png" id="1_i7x6f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_16bg3"]
+radius = 17.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_todgu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_i7x6f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EnemyBody" type="Node2D"]
+script = ExtResource("1_e4avk")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_16bg3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_todgu")
+frame_progress = 0.525947
