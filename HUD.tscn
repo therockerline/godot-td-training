@@ -57,3 +57,6 @@ initial_value = "0"
 layout_mode = 2
 label = "Path"
 initial_value = "0"
+
+[node name="BoxContainer" type="BoxContainer" parent="Control/GridContainer"]
+layout_mode = 2

@@ -45,11 +45,9 @@ func updateSlot(points: Array, baked, multiplier: float):
 		var position = point
 		slot.position = position
 		slot.connect('on_selected',func(): on_slot_selected.emit(slot))
-		print(slot)
 		add_child(slot)
 		
 	for slot_pos in del:
-		print('del', slot_pos)
 		var children = get_children()
 		var founded_children = children.filter(func(e): return e.position == slot_pos)
 		if len(founded_children) == 1:			
