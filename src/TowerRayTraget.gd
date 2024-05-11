@@ -7,7 +7,7 @@ func _ready():
 	line.add_point(Vector2.ZERO)
 
 func update_target_position(enemy: Enemy):
-	target_position =  enemy.global_position - global_position
+	target_position =  enemy.get_enemy_global_position() - global_position
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if enemy != null:

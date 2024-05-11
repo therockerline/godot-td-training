@@ -27,7 +27,7 @@ func _ready():
 	pass # Replace with function body.
 
 func get_enemy(area):
-	var enemy: Enemy = area.get_parent()
+	var enemy: Enemy = (area.get_parent() as EnemyBody).get_enemy()
 	return enemy
 
 func create_ray(enemy: Enemy):
@@ -86,11 +86,12 @@ func _on_fire_timer_timeout():
 	var _first: Dictionary = ray_dictionary.values().front()
 	var _last: Dictionary = ray_dictionary.values().back()
 	var ray_len = len(ray_dictionary.keys())
-	for ray_item in ray_dictionary.values():
-		var enemy: Enemy = ray_item.enemy
-		if is_instance_valid(enemy):
-			_far = ray_item if (not _far.has('enemy') or (is_instance_valid(_far.enemy) and position.distance_to(_far.enemy.position) < position.distance_to(enemy.position))) else _far
-			_near = ray_item if (not _near.has('enemy') or (is_instance_valid(_near.enemy) and position.distance_to(_near.enemy.position) >= position.distance_to(enemy.position))) else _near
+	for ray_item in ray_dictionary.values():		
+		if is_instance_valid(ray_item.enemy):
+			var enemy: Enemy = ray_item.enemy
+			var enemy_position = enemy.get_enemy_position()
+			_far = ray_item if (not _far.has('enemy') or (is_instance_valid(_far.enemy) and position.distance_to(_far.enemy.get_enemy_position()) < position.distance_to(enemy_position))) else _far
+			_near = ray_item if (not _near.has('enemy') or (is_instance_valid(_near.enemy) and position.distance_to(_near.enemy.get_enemy_position()) >= position.distance_to(enemy_position))) else _near
 			_strong = ray_item if (not _strong.has('enemy') or (is_instance_valid(_strong.enemy) and (_strong.enemy as Enemy).life > enemy.life)) else _strong
 			_weak = ray_item if (not _weak.has('enemy') or (is_instance_valid(_weak.enemy) and (_weak.enemy as Enemy).life <= enemy.life)) else _weak
 	
@@ -101,6 +102,12 @@ func _on_fire_timer_timeout():
 	strong = reset_or_set_modulate(strong, _strong, Color.YELLOW)
 	weak = reset_or_set_modulate(weak, _weak, Color.GRAY)
 	
+	var target = []
 	if strong.has('enemy'):
-		(strong.enemy as Enemy).shot(damage)
+		target.append(strong.enemy)
+	
+	for i in len(target):
+		if is_instance_valid(target[i]):
+			var enemy: Enemy = target[i]
+			enemy.shot(damage)
 	pass # Replace with function body.

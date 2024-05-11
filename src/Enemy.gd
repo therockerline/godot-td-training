@@ -15,7 +15,8 @@ var body: EnemyBody
 var _path := Path2D.new()	
 
 func _ready():
-	body = enemy_body.instantiate()	
+	body = enemy_body.instantiate()
+	body.enemy = self
 	follower.add_child(body)
 	_path = path
 	_path.add_child(follower)
@@ -32,7 +33,15 @@ func _process(d):
 		if follower.progress_ratio == 1.0:
 			queue_free()
 
+func get_enemy_position():
+	return follower.position
+func get_enemy_global_position():
+	return follower.global_position
+
 func shot(dmg: float):
 	var l = life - dmg
 	life = l if l > 0.0 else 0.0
-	body.draw_life(life)	
+	body.draw_life(life, max_life)	
+	if life == 0.0:
+		queue_free()
+		death.emit()
